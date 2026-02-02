@@ -67,31 +67,6 @@ export function FeatureSection() {
             </div>
           ))}
         </div>
-
-        {/* Real Talent. Real Process. Carousel */}
-        <div className="mt-16 animate-fade-in">
-          <div className="text-center mb-8">
-            <h3 className="text-3xl font-heading font-bold">Real Talent. Real Process.</h3>
-            <p className="text-muted-foreground">Images from our roleplays, onboarding, and KPI dashboards</p>
-          </div>
-
-          <div className="relative max-w-5xl mx-auto">
-            <Carousel className="">
-              <CarouselContent>
-                {slides.map((s, i) => (
-                  <CarouselItem key={i}>
-                    <div className="rounded-2xl border border-border bg-card overflow-hidden">
-                      <img src={s.src} alt={s.alt} loading="lazy" className="w-full h-[360px] object-cover" />
-                      <div className="p-4 text-center text-sm text-muted-foreground">{s.caption}</div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="-left-6" aria-label="Previous" />
-              <CarouselNext className="-right-6" aria-label="Next" />
-            </Carousel>
-          </div>
-        </div>
       </div>
     </section>
   );

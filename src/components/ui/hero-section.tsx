@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Check, Play } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
 
 export function HeroSection() {
   const valueBullets = [
@@ -21,11 +20,13 @@ export function HeroSection() {
   const testimonials = [
     {
       quote: "We went from closing ₹16L in the first few months to ₹2.3CR in a span of a year with EC's closers.",
-      author: "Sandeep Bhansali"
+      author: "Sandeep Bhansali",
+      image: "/images/Sandeep Bhansali.jpg"
     },
     {
       quote: "Instrumental in helping scale from 1CR to 2CR per month.",
-      author: "Vishal Manocha"
+      author: "Vishal Manocha",
+      image: "/images/Vishal Manocha.jpg"
     }
   ];
 
@@ -60,30 +61,25 @@ export function HeroSection() {
 
             {/* CTA */}
             <div className="space-y-2">
-              <Button size="lg" className="bg-gradient-gold hover:shadow-gold-lg transition-all duration-300 text-lg px-8 py-4 h-auto">
-                Book Your Free Discovery Call
+              <Button asChild size="lg" className="bg-gradient-gold hover:shadow-gold-lg transition-all duration-300 text-lg px-8 py-4 h-auto">
+                <a href="https://share.synamate.com/widget/bookings/exclusivecloser-discovery-call" target="_blank" rel="noopener noreferrer">
+                  Book Your Free Discovery Call
+                </a>
               </Button>
             </div>
           </div>
 
-          {/* Right Column - Image */}
+          {/* Right Column - Video */}
           <div className="relative">
-            <div className="relative overflow-hidden rounded-2xl shadow-gold-lg">
-              <img 
-                src={heroImage} 
-                alt="Professional sales team meeting" 
-                className="w-full h-auto object-cover"
+            <div className="relative overflow-hidden rounded-2xl shadow-gold-lg aspect-video">
+              <iframe 
+                src="https://www.youtube.com/embed/41DkD4WzSh0" 
+                title="Exclusive Closer Video" 
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
-              
-              {/* Video Play Button */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button className="group">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-6 shadow-xl hover:shadow-2xl transition-all duration-300 group-hover:scale-110">
-                    <Play className="h-8 w-8 text-background fill-background ml-1" />
-                  </div>
-                </button>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
             </div>
           </div>
         </div>
@@ -92,10 +88,19 @@ export function HeroSection() {
         <div className="mt-16 grid md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-card p-6 rounded-xl border border-border">
-              <blockquote className="text-foreground font-medium mb-3">
-                "{testimonial.quote}"
-              </blockquote>
-              <cite className="text-primary font-semibold">- {testimonial.author}</cite>
+              <div className="flex items-start gap-4">
+                <img 
+                  src={testimonial.image} 
+                  alt={testimonial.author} 
+                  className="w-16 h-16 rounded-full object-cover flex-shrink-0"
+                />
+                <div className="flex-1">
+                  <blockquote className="text-foreground font-medium mb-3">
+                    "{testimonial.quote}"
+                  </blockquote>
+                  <cite className="text-primary font-semibold">- {testimonial.author}</cite>
+                </div>
+              </div>
             </div>
           ))}
         </div>

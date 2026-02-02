@@ -22,43 +22,16 @@ export function HireTalentSection() {
             </h2>
           </div>
 
-          <div className="space-y-4 mb-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start gap-3 text-left max-w-2xl mx-auto">
-                <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0" />
-                <p className="text-lg text-muted-foreground">{benefit}</p>
-              </div>
-            ))}
-          </div>
-
-          <Button size="lg" className="bg-gradient-gold hover:shadow-gold-lg transition-all duration-300">
-            Book a Talent Match Call
-          </Button>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function FunnelAuditSection() {
-  const benefits = [
-    "Full-funnel diagnostics, CRM + script fix",
-    "Identify and plug revenue leaks",
-    "Best for: ₹10L–₹25L/month founders losing money to leaks"
-  ];
-
-  return (
-    <section className="py-24 bg-muted/30">
-      <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="mb-8">
-            <Search className="h-16 w-16 mx-auto mb-6 text-primary" />
-            <h2 className="text-4xl lg:text-5xl font-heading font-bold mb-6">
-              Fix the Leaks in Your Sales Funnel -{" "}
-              <span className="bg-gradient-gold bg-clip-text text-transparent">
-                and Close More
-              </span>
-            </h2>
+          <div className="mb-12 max-w-3xl mx-auto">
+            <div className="rounded-2xl overflow-hidden border border-border bg-card aspect-video">
+              <iframe 
+                src="https://www.youtube.com/embed/UBFJ00uZh_g" 
+                title="Build Your Bench Video" 
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </div>
 
           <div className="space-y-4 mb-8">
@@ -70,8 +43,10 @@ export function FunnelAuditSection() {
             ))}
           </div>
 
-          <Button size="lg" className="bg-gradient-gold hover:shadow-gold-lg transition-all duration-300">
-            Request Funnel Audit
+          <Button asChild size="lg" className="bg-gradient-gold hover:shadow-gold-lg transition-all duration-300">
+            <a href="https://share.synamate.com/widget/bookings/exclusivecloser-discovery-call" target="_blank" rel="noopener noreferrer">
+              Book a Talent Match Call
+            </a>
           </Button>
         </div>
       </div>
@@ -100,6 +75,18 @@ export function TrainingSection() {
             </h2>
           </div>
 
+          <div className="mb-12 max-w-3xl mx-auto">
+            <div className="rounded-2xl overflow-hidden border border-border bg-card aspect-video">
+              <iframe 
+                src="https://www.youtube.com/embed/MsWFa9O6yvs" 
+                title="Sales Reps Training Video" 
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+
           <div className="space-y-4 mb-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex items-start gap-3 text-left max-w-2xl mx-auto">
@@ -109,8 +96,10 @@ export function TrainingSection() {
             ))}
           </div>
 
-          <Button size="lg" className="bg-gradient-gold hover:shadow-gold-lg transition-all duration-300">
-            Talk to a Sales Coach
+          <Button asChild size="lg" className="bg-gradient-gold hover:shadow-gold-lg transition-all duration-300">
+            <a href="https://share.synamate.com/widget/bookings/exclusivecloser-discovery-call" target="_blank" rel="noopener noreferrer">
+              Talk to a Sales Coach
+            </a>
           </Button>
         </div>
       </div>
@@ -120,7 +109,7 @@ export function TrainingSection() {
 
 export function FullTeamSection() {
   const benefits = [
-    "2 Setters + 3 Closers managed by our team",
+    "Setters & Closers managed by our team",
     "Includes recruiter, trainer, leader & consultant for all your sales enablement needs",
     "Best for: ₹25L+ businesses ready to scale without micromanagement"
   ];
@@ -139,6 +128,18 @@ export function FullTeamSection() {
             </h2>
           </div>
 
+          <div className="mb-12 max-w-3xl mx-auto">
+            <div className="rounded-2xl overflow-hidden border border-border bg-card aspect-video">
+              <iframe 
+                src="https://www.youtube.com/embed/Fcx2rLtgkMg" 
+                title="Done-for-You Sales Team Video" 
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+
           <div className="space-y-4 mb-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex items-start gap-3 text-left max-w-2xl mx-auto">
@@ -148,8 +149,10 @@ export function FullTeamSection() {
             ))}
           </div>
 
-          <Button size="lg" className="bg-gradient-gold hover:shadow-gold-lg transition-all duration-300">
-            Start with a Discovery Call
+          <Button asChild size="lg" className="bg-gradient-gold hover:shadow-gold-lg transition-all duration-300">
+            <a href="https://share.synamate.com/widget/bookings/exclusivecloser-discovery-call" target="_blank" rel="noopener noreferrer">
+              Start with a Discovery Call
+            </a>
           </Button>
         </div>
       </div>

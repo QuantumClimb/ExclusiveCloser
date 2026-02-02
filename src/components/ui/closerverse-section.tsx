@@ -66,65 +66,74 @@ export function CloserVerseSection() {
         <div className="mb-12">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <figure className="group relative overflow-hidden rounded-xl border border-border bg-card">
-              <img
-                src="/images/roleplay.jpg"
-                alt="CloserVerse live roleplays training session"
-                loading="lazy"
-                className="w-full h-48 object-cover"
-              />
-              <figcaption className="p-4 text-center font-heading font-semibold">Live Roleplays</figcaption>
+              <div className="w-full aspect-video min-h-[240px]">
+                <iframe
+                  src="https://www.youtube.com/embed/t_KL6cb5v3I"
+                  alt="Buyer Psychology"
+                  loading="lazy"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <figcaption className="p-4 text-center font-heading font-semibold">Buyer Psychology</figcaption>
             </figure>
 
             <figure className="group relative overflow-hidden rounded-xl border border-border bg-card">
-              <img
-                src="/images/closerverse-vetting.jpg"
-                alt="CloserVerse vetting process assessments and checkpoints"
-                loading="lazy"
-                className="w-full h-48 object-cover"
-              />
-              <figcaption className="p-4 text-center font-heading font-semibold">Vetting Process</figcaption>
+              <div className="w-full aspect-video min-h-[240px]">
+                <iframe
+                  src="https://www.youtube.com/embed/bepI64VWhyc"
+                  alt="Conversational"
+                  loading="lazy"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <figcaption className="p-4 text-center font-heading font-semibold">Conversational</figcaption>
             </figure>
 
             <figure className="group relative overflow-hidden rounded-xl border border-border bg-card">
-              <img
-                src="/images/closerverse-certified.jpg"
-                alt="Certified by CloserVerse badge and certificate"
-                loading="lazy"
-                className="w-full h-48 object-cover"
-              />
-              <figcaption className="p-4 text-center font-heading font-semibold">Certified by CloserVerse</figcaption>
+              <div className="w-full aspect-video min-h-[240px]">
+                <iframe
+                  src="https://www.youtube.com/embed/31Cn06_GW1s"
+                  alt="Credibility"
+                  loading="lazy"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <figcaption className="p-4 text-center font-heading font-semibold">Credibility</figcaption>
             </figure>
 
             <figure className="group relative overflow-hidden rounded-xl border border-border bg-card">
-              <img
-                src="/images/crm-dashboard.jpg"
-                alt="CloserVerse 1% Club leaderboard view"
-                loading="lazy"
-                className="w-full h-48 object-cover"
-              />
-              <figcaption className="p-4 text-center font-heading font-semibold">1% Club Leaderboard</figcaption>
+              <div className="w-full aspect-video min-h-[240px]">
+                <iframe
+                  src="https://www.youtube.com/embed/kZaqb6HzWK4"
+                  alt="Consultative"
+                  loading="lazy"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <figcaption className="p-4 text-center font-heading font-semibold">Consultative</figcaption>
             </figure>
           </div>
         </div>
 
         {/* Aniket talking-head video thumbnail */}
         <div className="max-w-4xl mx-auto">
-          <figure className="relative overflow-hidden rounded-2xl border border-border bg-card">
-            <img
-              src="/images/aniket-vetting.jpg"
+          <figure className="relative overflow-hidden rounded-2xl border border-border bg-card aspect-video">
+            <iframe
+              src="https://www.youtube.com/embed/Zjdii_wXVNo"
               alt="Aniket explains our vetting and training process"
               loading="lazy"
-              className="w-full h-64 object-cover"
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
             />
-            <button type="button" className="absolute inset-0 flex items-center justify-center">
-              <span className="sr-only">Play Aniket video (60 seconds)</span>
-              <span className="bg-white/90 backdrop-blur-sm rounded-full p-4">
-                <Play className="h-8 w-8 text-background fill-background ml-1" />
-              </span>
-            </button>
-            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/70 to-transparent p-4">
-              <p className="text-sm text-foreground font-medium">Aniket on our Vetting & Training (60s)</p>
-            </figcaption>
           </figure>
         </div>
       </div>

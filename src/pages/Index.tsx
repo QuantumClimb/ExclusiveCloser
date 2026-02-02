@@ -3,7 +3,7 @@ import { HeroSection } from "@/components/ui/hero-section";
 import { FeatureSection } from "@/components/ui/feature-section";
 import { SocialProofSection } from "@/components/ui/social-proof-section";
 import { UpdatedProblemSection } from "@/components/ui/updated-problem-section";
-import { HireTalentSection, FunnelAuditSection, TrainingSection, FullTeamSection } from "@/components/ui/solutions-sections";
+import { HireTalentSection, TrainingSection, FullTeamSection } from "@/components/ui/solutions-sections";
 import { CaseStudyCarousel } from "@/components/ui/case-study-carousel";
 import { UpdatedDifferentiatorSection } from "@/components/ui/updated-differentiator-section";
 import { CloserVerseSection } from "@/components/ui/closerverse-section";
@@ -20,10 +20,9 @@ const Index = () => {
       <SocialProofSection />
       <UpdatedProblemSection />
       <HireTalentSection />
-      <FunnelAuditSection />
       <TrainingSection />
       <FullTeamSection />
-      <CaseStudyCarousel />
+      {/* <CaseStudyCarousel /> */}
       <UpdatedDifferentiatorSection />
       <CloserVerseSection />
       <FoundersSection />

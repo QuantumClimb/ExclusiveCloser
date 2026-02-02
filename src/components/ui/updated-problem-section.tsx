@@ -33,23 +33,14 @@ export function UpdatedProblemSection() {
 
         {/* Blueprint video widget */}
         <div className="mb-16">
-          <div className="text-center mb-4">
-            <p className="text-sm tracking-wide text-muted-foreground">
-              Behind the Performance: Our Sales Engine Blueprint
-            </p>
-          </div>
-          <div className="mx-auto max-w-4xl rounded-2xl overflow-hidden border border-border bg-card">
-            <video
-              className="w-full h-auto block"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="none"
-              poster="/images/crm-dashboard.jpg"
-            >
-              <source src="/videos/ec-blueprint.mp4" type="video/mp4" />
-            </video>
+          <div className="mx-auto max-w-4xl rounded-2xl overflow-hidden border border-border bg-card aspect-video">
+            <iframe 
+              src="https://www.youtube.com/embed/mx_SF4VPSjA" 
+              title="Sales Engine Blueprint" 
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </div>
         </div>
 
@@ -90,10 +81,15 @@ export function UpdatedProblemSection() {
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
             Sound familiar? You're not alone. We've helped 30+ founders escape the sales treadmill and install a Killer Sales Engine that performs - every single day.
           </p>
-          <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            <Play className="h-5 w-5 mr-2" />
-            See How We Do It - Video Explainer
-          </Button>
+          <div className="relative overflow-hidden rounded-2xl shadow-lg aspect-video max-w-4xl mx-auto">
+            <iframe 
+              src="https://www.youtube.com/embed/5lPiUfjfxH4" 
+              title="How We Do It - Video Explainer" 
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
         </div>
       </div>
     </section>

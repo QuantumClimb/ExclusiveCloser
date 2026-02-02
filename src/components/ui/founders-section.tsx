@@ -5,22 +5,24 @@ export function FoundersSection() {
   const founders = [
     {
       name: "Aum Janakiram",
-      title: "Co-founder & CEO",
-      description: "Sales strategist with 8+ years building revenue systems for coaches and SaaS founders.",
+      title: "Co-Founder / Chief Energy Officer",
+      description: "Marketing & Sales strategist with 20+ years building revenue systems for agencies, coaches and SaaS founders.",
+      image: "/images/Aum_Janakiram.png",
       social: {
-        linkedin: "#",
-        youtube: "#",
-        instagram: "#"
+        linkedin: "https://www.linkedin.com/in/aumjanakiram/",
+        youtube: "https://www.youtube.com/@AumJanakiram",
+        instagram: "https://www.instagram.com/aumjanakiram/"
       }
     },
     {
       name: "Aniket Kumar", 
-      title: "Co-founder & COO",
-      description: "Remote sales expert specializing in team training, NEPQ frameworks, and performance optimization.",
+      title: "Co-Founder / Chief People Officer",
+      description: "Remote sales expert specializing in finding the right people, helping them grow, NEPQ frameworks, and performance optimization.",
+      image: "/images/Aniket_Kumar.png",
       social: {
-        linkedin: "#",
-        youtube: "#", 
-        instagram: "#"
+        linkedin: "https://www.linkedin.com/in/aniket-kumar-a512bb158/",
+        youtube: "https://www.youtube.com/@theaniketkumar", 
+        instagram: "https://www.instagram.com/theaniketkumarr/"
       }
     }
   ];
@@ -41,20 +43,13 @@ export function FoundersSection() {
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {founders.map((founder, index) => (
             <div key={index} className="text-center space-y-6">
-              {/* Founder Video Placeholder */}
+              {/* Founder Image */}
               <figure className="mx-auto w-full max-w-md overflow-hidden rounded-xl border border-border bg-card">
-                <video
-                  className="w-full h-auto block"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="none"
-                  poster={index === 0 ? "/images/roleplay.jpg" : "/images/aniket-vetting.jpg"}
-                  aria-label={`Intro video of ${founder.name}`}
-                >
-                  <source src="/videos/ec-blueprint.mp4" type="video/mp4" />
-                </video>
+                <img
+                  src={founder.image}
+                  alt={founder.name}
+                  className="w-full h-auto object-cover"
+                />
               </figure>
               
               <div>
@@ -96,8 +91,10 @@ export function FoundersSection() {
         </div>
 
         <div className="text-center mt-8">
-          <Button size="lg" className="bg-gradient-gold hover:shadow-gold-lg transition-all duration-300">
-            Work With Our Leadership →
+          <Button asChild size="lg" className="bg-gradient-gold hover:shadow-gold-lg transition-all duration-300">
+            <a href="https://share.synamate.com/widget/bookings/exclusivecloser-discovery-call" target="_blank" rel="noopener noreferrer">
+              Work With Our Leadership →
+            </a>
           </Button>
         </div>
       </div>

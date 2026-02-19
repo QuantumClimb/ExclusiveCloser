@@ -48,7 +48,7 @@ export function CloserVerseSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {programs.map((program, index) => (
-            <div key={index} className="text-center space-y-4 p-6 bg-card rounded-xl border border-border hover:border-primary/50 transition-all duration-300">
+            <div key={index} className="text-center space-y-4 p-6 bg-card rounded-xl border border-border hover:border-primary transition-all duration-300">
               <div className="mx-auto w-16 h-16 bg-gradient-gold rounded-xl flex items-center justify-center">
                 <program.icon className="h-8 w-8 text-primary-foreground" />
               </div>
@@ -66,10 +66,10 @@ export function CloserVerseSection() {
         <div className="mb-12">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <figure className="group relative overflow-hidden rounded-xl border border-border bg-card">
-              <div className="w-full aspect-video min-h-[240px]">
+              <div className="w-full aspect-video">
                 <iframe
                   src="https://www.youtube.com/embed/t_KL6cb5v3I"
-                  alt="Buyer Psychology"
+                  title="Buyer Psychology"
                   loading="lazy"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -80,10 +80,10 @@ export function CloserVerseSection() {
             </figure>
 
             <figure className="group relative overflow-hidden rounded-xl border border-border bg-card">
-              <div className="w-full aspect-video min-h-[240px]">
+              <div className="w-full aspect-video">
                 <iframe
                   src="https://www.youtube.com/embed/bepI64VWhyc"
-                  alt="Conversational"
+                  title="Conversational"
                   loading="lazy"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -94,10 +94,10 @@ export function CloserVerseSection() {
             </figure>
 
             <figure className="group relative overflow-hidden rounded-xl border border-border bg-card">
-              <div className="w-full aspect-video min-h-[240px]">
+              <div className="w-full aspect-video">
                 <iframe
                   src="https://www.youtube.com/embed/31Cn06_GW1s"
-                  alt="Credibility"
+                  title="Credibility"
                   loading="lazy"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -108,10 +108,10 @@ export function CloserVerseSection() {
             </figure>
 
             <figure className="group relative overflow-hidden rounded-xl border border-border bg-card">
-              <div className="w-full aspect-video min-h-[240px]">
+              <div className="w-full aspect-video">
                 <iframe
                   src="https://www.youtube.com/embed/kZaqb6HzWK4"
-                  alt="Consultative"
+                  title="Consultative"
                   loading="lazy"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -128,7 +128,7 @@ export function CloserVerseSection() {
           <figure className="relative overflow-hidden rounded-2xl border border-border bg-card aspect-video">
             <iframe
               src="https://www.youtube.com/embed/Zjdii_wXVNo"
-              alt="Aniket explains our vetting and training process"
+              title="Aniket explains our vetting and training process"
               loading="lazy"
               className="w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

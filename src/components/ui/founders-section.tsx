@@ -41,8 +41,8 @@ export function FoundersSection() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {founders.map((founder, index) => (
-            <div key={index} className="text-center space-y-6">
+          {founders.map((founder) => (
+            <div key={founder.name} className="text-center space-y-6">
               {/* Founder Image */}
               <figure className="mx-auto w-full max-w-md overflow-hidden rounded-xl border border-border bg-card">
                 <img

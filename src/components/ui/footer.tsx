@@ -1,59 +1,88 @@
-import { Linkedin, Youtube, Instagram, Music } from "lucide-react";
+import { Linkedin, Youtube, Instagram, MessageCircle } from "lucide-react";
 
 export function Footer() {
+  const resourceLinks = [
+    { text: "Sales Warrior Masterclass", href: "https://live.exclusivecloser.com/register" },
+    { text: "Killer Sales Engine Podcast", href: "https://www.youtube.com/watch?v=fsZN1ZYLljQ&list=PLNxSncvu_zq7fIFpy31xTstAol5P-L8FY" },
+    { text: "Webinar Follow Masterclass", href: "https://kse.exclusivecloser.com/" },
+    { text: "Sales Team Management Masterclass", href: "https://youtu.be/Xb0opOSH6RI" }
+  ];
+
   const socialLinks = [
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Music, href: "#", label: "Spotify" }
+    { icon: Linkedin, href: "https://www.linkedin.com/company/exclusive-closer/", label: "LinkedIn" },
+    { icon: Youtube, href: "https://www.youtube.com/@exclusivecloser", label: "YouTube" },
+    { icon: Instagram, href: "https://www.instagram.com/exclusive_closer/", label: "Instagram" },
+    { icon: MessageCircle, href: "https://wa.me/918939719388?text=Hi%20I%20am%20interested%20to%20work%20with%20you", label: "WhatsApp" }
   ];
 
   const legalLinks = [
-    { text: "Privacy Policy", href: "#" },
-    { text: "Terms", href: "#" },
-    { text: "Disclaimer", href: "#" }
+    { text: "Terms & Conditions", href: "https://exclusivecloser.com/terms-conditions/" },
+    { text: "Privacy Policy", href: "https://exclusivecloser.com/privacy-policy/" },
+    { text: "Contact Us", href: "https://exclusivecloser.com/contact-us/" }
   ];
 
   return (
-    <footer className="bg-card border-t border-border py-12">
+    <footer className="bg-[#000000] border-t border-border py-12">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 items-center">
-            {/* Contact */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Address */}
             <div className="space-y-4">
               <h3 className="text-lg font-heading font-semibold text-foreground">
-                Contact
+                Address
               </h3>
-              <div className="space-y-2">
-                <p className="text-muted-foreground">
-                  <a href="mailto:aum@exclusivecloser.com" className="hover:text-primary transition-colors">
-                    aum@exclusivecloser.com
-                  </a>
-                </p>
-                <p className="text-muted-foreground">
-                  <a href="https://www.exclusivecloser.com" className="hover:text-primary transition-colors">
-                    www.exclusivecloser.com
+              <div className="space-y-1 text-sm text-muted-foreground">
+                <p className="font-semibold text-foreground">Exclusive Closer Private Limited</p>
+                <p>Oyo Innov8, 44 BACKARY PORTION</p>
+                <p>2ND FLR, REGAL BLDG</p>
+                <p>Connaught Place 2,</p>
+                <p>Central Delhi – 110001</p>
+                <p className="mt-3">
+                  <a href="mailto:support@exclusivecloser.com" className="hover:text-primary transition-colors">
+                    Email: support@exclusivecloser.com
                   </a>
                 </p>
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="space-y-4 text-center">
+            {/* Insightful Resources */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-heading font-semibold text-foreground">
+                Insightful Resources
+              </h3>
+              <div className="space-y-2">
+                {resourceLinks.map((link) => (
+                  <a
+                    key={link.text}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {link.text}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Follow Us */}
+            <div className="space-y-4">
               <h3 className="text-lg font-heading font-semibold text-foreground">
                 Follow Us
               </h3>
-              <div className="flex justify-center gap-4">
-                {socialLinks.map((social, index) => {
+              <div className="flex flex-col gap-3">
+                {socialLinks.map((social) => {
                   const Icon = social.icon;
                   return (
                     <a
-                      key={index}
+                      key={social.label}
                       href={social.href}
-                      aria-label={social.label}
-                      className="p-2 bg-background rounded-lg border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
-                      <Icon className="h-5 w-5 text-muted-foreground hover:text-primary" />
+                      <Icon className="h-5 w-5" />
+                      <span>{social.label}</span>
                     </a>
                   );
                 })}
@@ -61,16 +90,18 @@ export function Footer() {
             </div>
 
             {/* Legal */}
-            <div className="space-y-4 text-center md:text-right">
+            <div className="space-y-4">
               <h3 className="text-lg font-heading font-semibold text-foreground">
                 Legal
               </h3>
-              <div className="flex flex-wrap justify-center md:justify-end gap-4">
-                {legalLinks.map((link, index) => (
+              <div className="space-y-2">
+                {legalLinks.map((link) => (
                   <a
-                    key={index}
+                    key={link.text}
                     href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.text}
                   </a>
@@ -80,9 +111,12 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <div className="border-t border-border mt-8 pt-8 text-center">
+          <div className="border-t border-border mt-8 pt-8 text-center space-y-2">
             <p className="text-muted-foreground text-sm">
-              © 2024 Exclusive Closer. All rights reserved.
+              © 2026 Exclusive Closer Private Limited. All Rights Reserved.
+            </p>
+            <p className="text-muted-foreground text-sm">
+              Made with Love by <a href="https://www.quantum-climb.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Quantum Climb</a>
             </p>
           </div>
         </div>

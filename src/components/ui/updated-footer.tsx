@@ -1,25 +1,25 @@
-import { Linkedin, Youtube, Instagram, Music } from "lucide-react";
+import { Linkedin, Youtube, Instagram, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function UpdatedFooter() {
-  const navigationLinks = [
-    { label: "How We Work", href: "/how-we-work" },
-    { label: "About", href: "/about" },
-    { label: "Sales Training", href: "/sales-training" },
-    { label: "Partner with us", href: "/partner" }
+  const resourceLinks = [
+    { label: "Sales Warrior Masterclass", href: "https://live.exclusivecloser.com/register" },
+    { label: "Killer Sales Engine Podcast", href: "https://www.youtube.com/watch?v=fsZN1ZYLljQ&list=PLNxSncvu_zq7fIFpy31xTstAol5P-L8FY" },
+    { label: "Webinar Follow Masterclass", href: "https://kse.exclusivecloser.com/" },
+    { label: "Sales Team Management Masterclass", href: "https://youtu.be/Xb0opOSH6RI" }
   ];
 
   const socialLinks = [
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Music, href: "#", label: "Spotify" }
+    { icon: Linkedin, href: "https://www.linkedin.com/company/exclusive-closer/", label: "LinkedIn" },
+    { icon: Youtube, href: "https://www.youtube.com/@exclusivecloser", label: "YouTube" },
+    { icon: Instagram, href: "https://www.instagram.com/exclusive_closer/", label: "Instagram" },
+    { icon: MessageCircle, href: "https://wa.me/918939719388?text=Hi%20I%20am%20interested%20to%20work%20with%20you", label: "WhatsApp" }
   ];
 
   const legalLinks = [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms", href: "/terms" },
-    { label: "Disclaimer", href: "/disclaimer" }
+    { label: "Terms & Conditions", href: "https://exclusivecloser.com/terms-conditions/" },
+    { label: "Privacy Policy", href: "https://exclusivecloser.com/privacy-policy/" },
+    { label: "Contact Us", href: "https://exclusivecloser.com/contact-us/" }
   ];
 
   const scrollToTop = () => {
@@ -27,10 +27,10 @@ export function UpdatedFooter() {
   };
 
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="bg-[#000000] border-t border-border">
       <div className="container mx-auto px-6 py-12">
         <div className="grid lg:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
+          {/* Address */}
           <div className="space-y-4">
             <Link 
               to="/" 
@@ -39,52 +39,52 @@ export function UpdatedFooter() {
             >
               Exclusive Closer
             </Link>
-            <p className="text-muted-foreground">
-              India's #1 Remote Sales Partner for Coaches, SaaS & e-Learning
-            </p>
-            <div className="space-y-2">
-              <p className="text-sm text-muted-foreground">
-                <a href="mailto:aum@exclusivecloser.com" className="hover:text-primary transition-colors">
-                  aum@exclusivecloser.com
-                </a>
-              </p>
-              <p className="text-sm text-muted-foreground">
-                <a href="https://exclusivecloser.com" className="hover:text-primary transition-colors">
-                  www.exclusivecloser.com
+            <div className="space-y-1 text-sm text-muted-foreground">
+              <p className="font-semibold text-foreground">Exclusive Closer Private Limited</p>
+              <p>Oyo Innov8, 44 BACKARY PORTION</p>
+              <p>2ND FLR, REGAL BLDG</p>
+              <p>Connaught Place 2,</p>
+              <p>Central Delhi – 110001</p>
+              <p className="mt-3">
+                <a href="mailto:support@exclusivecloser.com" className="hover:text-primary transition-colors">
+                  Email: support@exclusivecloser.com
                 </a>
               </p>
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Insightful Resources */}
           <div className="space-y-4">
-            <h4 className="font-heading font-semibold text-foreground">Navigation</h4>
+            <h4 className="font-heading font-semibold text-foreground">Insightful Resources</h4>
             <div className="space-y-2">
-              {navigationLinks.map((link, index) => (
-                <Link
-                  key={index}
-                  to={link.href}
+              {resourceLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                  onClick={scrollToTop}
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
 
-          {/* Social Media */}
+          {/* Follow Us */}
           <div className="space-y-4">
             <h4 className="font-heading font-semibold text-foreground">Follow Us</h4>
-            <div className="flex gap-4">
-              {socialLinks.map((social, index) => (
+            <div className="flex flex-col gap-3">
+              {socialLinks.map((social) => (
                 <a
-                  key={index}
+                  key={social.label}
                   href={social.href}
-                  className="p-2 bg-background border border-border rounded-lg hover:border-primary/50 transition-colors"
-                  aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  <social.icon className="h-5 w-5 text-muted-foreground hover:text-primary" />
+                  <social.icon className="h-5 w-5" />
+                  <span>{social.label}</span>
                 </a>
               ))}
             </div>
@@ -94,15 +94,16 @@ export function UpdatedFooter() {
           <div className="space-y-4">
             <h4 className="font-heading font-semibold text-foreground">Legal</h4>
             <div className="space-y-2">
-              {legalLinks.map((link, index) => (
-                <Link
-                  key={index}
-                  to={link.href}
+              {legalLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                  onClick={scrollToTop}
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -112,10 +113,10 @@ export function UpdatedFooter() {
         <div className="pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              © 2025 Exclusive Closer. All rights reserved.
+              © 2026 Exclusive Closer Private Limited. All Rights Reserved.
             </p>
             <p className="text-sm text-muted-foreground">
-              Built with ❤️ for ambitious founders
+              Made with Love by <a href="https://www.quantum-climb.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Quantum Climb</a>
             </p>
           </div>
         </div>

@@ -66,8 +66,8 @@ export function CaseStudyCarousel() {
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
-              {caseStudies.map((study, index) => (
-                <div key={index} className="w-full flex-shrink-0">
+              {caseStudies.map((study) => (
+                <div key={study.name} className="w-full flex-shrink-0">
                   <div className="bg-card border border-border rounded-2xl p-8 grid lg:grid-cols-2 gap-8 items-center">
                     {/* Video Thumbnail */}
                     <div className="relative group cursor-pointer">
@@ -123,14 +123,18 @@ export function CaseStudyCarousel() {
           {caseStudies.length > 1 && (
             <div className="flex justify-center gap-4 mt-8">
               <button 
+                type="button"
                 onClick={prevSlide}
                 className="p-2 rounded-full bg-card border border-border hover:border-primary/50 transition-colors"
+                aria-label="Previous case study"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
               <button 
+                type="button"
                 onClick={nextSlide}
                 className="p-2 rounded-full bg-card border border-border hover:border-primary/50 transition-colors"
+                aria-label="Next case study"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>

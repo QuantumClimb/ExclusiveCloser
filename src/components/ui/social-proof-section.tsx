@@ -3,7 +3,46 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/
 import { BarChart, Bar, CartesianGrid, XAxis, YAxis } from "recharts";
 import { Button } from "@/components/ui/button";
 
+interface TestimonialVideo {
+  name: string;
+  thumbnail: string;
+  title: string;
+  metrics: string;
+  caseStudyUrl: string;
+  growth: Array<{ month: string; revenue: number }>;
+}
+
 export function SocialProofSection() {
+  const getVideoEmbed = (index: number, video: TestimonialVideo) => {
+    const videoUrls = [
+      "https://www.youtube.com/embed/IwGOYr4azR4",
+      "https://www.youtube.com/embed/5iuarxMXZCI",
+      "https://www.youtube.com/embed/ICLmnYUwpMQ"
+    ];
+
+    if (index < videoUrls.length) {
+      return (
+        <div className="aspect-video">
+          <iframe 
+            src={videoUrls[index]} 
+            title={video.title}
+            className="w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      );
+    }
+
+    return (
+      <div className="aspect-video bg-muted flex items-center justify-center">
+        <div className="bg-white/90 backdrop-blur-sm rounded-full p-4 group-hover:scale-110 transition-transform duration-300">
+          <Play className="h-6 w-6 text-background fill-background ml-1" />
+        </div>
+      </div>
+    );
+  };
+
   const clients = [
     { name: "Dev Gadhvi", role: "Coach", image: "/images/clients/EC Clients 00 - Dev Gadhvi.jpg" },
     { name: "Ankit Neerav", role: "Coach", image: "/images/clients/EC Clients 01 - Ankit Neerav.jpg" },
@@ -24,7 +63,7 @@ export function SocialProofSection() {
     { name: "Sriram Benur", role: "Coach", image: "/images/clients/EC Clients 16 - Sriram Benur.jpg" }
   ];
 
-  const testimonialVideos = [
+  const testimonialVideos: TestimonialVideo[] = [
     {
       name: "Sandeep Bhansali",
       thumbnail: "/placeholder-video-1.jpg",
@@ -71,13 +110,21 @@ export function SocialProofSection() {
   ];
 
   return (
-    <section className="py-24 bg-muted/30">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
         {/* Client Grid */}
         <div className="mb-16">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              Trusted by India's Top Coaches & Experts
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Over 50+ businesses have scaled their sales with our remote sales teams
+            </p>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            {clients.map((client, index) => (
-              <div key={index} className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border hover:border-primary/50 transition-colors">
+            {clients.map((client) => (
+              <div key={client.name} className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border hover:border-primary/50 transition-colors">
                 <img 
                   src={client.image} 
                   alt={client.name} 
@@ -95,45 +142,9 @@ export function SocialProofSection() {
         {/* Testimonial Videos */}
         <div className="grid md:grid-cols-3 gap-8">
           {testimonialVideos.map((video, index) => (
-            <div key={index} className="group cursor-pointer">
+            <div key={video.name} className="group cursor-pointer">
               <div className="relative overflow-hidden rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300">
-                {index === 0 ? (
-                  <div className="aspect-video">
-                    <iframe 
-                      src="https://www.youtube.com/embed/IwGOYr4azR4" 
-                      title={video.title}
-                      className="w-full h-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
-                  </div>
-                ) : index === 1 ? (
-                  <div className="aspect-video">
-                    <iframe 
-                      src="https://www.youtube.com/embed/5iuarxMXZCI" 
-                      title={video.title}
-                      className="w-full h-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
-                  </div>
-                ) : index === 2 ? (
-                  <div className="aspect-video">
-                    <iframe 
-                      src="https://www.youtube.com/embed/ICLmnYUwpMQ" 
-                      title={video.title}
-                      className="w-full h-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
-                  </div>
-                ) : (
-                  <div className="aspect-video bg-muted flex items-center justify-center">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-full p-4 group-hover:scale-110 transition-transform duration-300">
-                      <Play className="h-6 w-6 text-background fill-background ml-1" />
-                    </div>
-                  </div>
-                )}
+                {getVideoEmbed(index, video)}
                   <div className="p-6">
                     <h3 className="font-heading font-bold text-lg mb-1">{video.name}</h3>
                     <p className="text-muted-foreground mb-4">{video.title}</p>

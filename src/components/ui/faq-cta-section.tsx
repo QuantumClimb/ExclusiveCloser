@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Download, Search, Phone, CreditCard } from "lucide-react";
+import { Download, Search, Phone, Briefcase, UserCheck } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export function FAQCTASection() {
@@ -80,23 +80,24 @@ export function FAQCTASection() {
   const ctaOptions = [
     {
       icon: Download,
-      title: "Download Sales Toolkit",
-      description: "Scripts, templates, and frameworks used by top sales teams"
+      title: "Download Guide",
+      description: "Free Remote Sales Hiring Guide",
+      highlighted: false,
+      href: "https://recguide.exclusivecloser.com/"
     },
     {
       icon: Search,
-      title: "View Case Studies",
-      description: "See real results from our clients"
+      title: "Closer Readiness Audit",
+      description: "Get your custom roadmap",
+      highlighted: false,
+      href: "https://forms.gle/4QWTTzjJWwXJN5ny6"
     },
     {
       icon: Phone,
-      title: "Schedule Discovery Call",
-      description: "Let's discuss your sales challenges"
-    },
-    {
-      icon: CreditCard,
-      title: "View Pricing",
-      description: "Transparent, performance-based pricing"
+      title: "Free Discovery Call",
+      description: "Speak with our advisors",
+      highlighted: true,
+      href: "https://share.synamate.com/widget/bookings/exclusivecloser-discovery-call"
     }
   ];
 
@@ -112,31 +113,33 @@ export function FAQCTASection() {
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* FAQ Section */}
         <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-muted-foreground text-center mb-10">
-            Everything you need to know about our recruitment, training, and sales team management services.
-          </p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Everything you need to know about our recruitment, training, and sales team management services.
+            </p>
+          </div>
 
           <Tabs defaultValue="recruitment" className="w-full">
-            <TabsList className="grid w-full max-w-2xl mx-auto mb-8 grid-cols-3 h-auto">
-              <TabsTrigger value="recruitment" className="text-sm md:text-base py-2">
+            <TabsList className="grid w-full max-w-3xl mx-auto mb-12 grid-cols-3 h-auto p-1.5">
+              <TabsTrigger value="recruitment" className="text-sm md:text-base py-3 px-4 data-[state=active]:bg-gradient-gold data-[state=active]:text-black">
                 Recruitment
               </TabsTrigger>
-              <TabsTrigger value="training" className="text-sm md:text-base py-2">
-                Sales Training
+              <TabsTrigger value="training" className="text-sm md:text-base py-3 px-4 data-[state=active]:bg-gradient-gold data-[state=active]:text-black">
+                Training
               </TabsTrigger>
-              <TabsTrigger value="fstm" className="text-sm md:text-base py-2">
-                Full Sales Team Management
+              <TabsTrigger value="fstm" className="text-sm md:text-base py-3 px-4 data-[state=active]:bg-gradient-gold data-[state=active]:text-black">
+                Management
               </TabsTrigger>
             </TabsList>
 
             {/* Recruitment TAB */}
             <TabsContent value="recruitment" className="w-full">
-              <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
+              <Accordion type="single" collapsible className="w-full max-w-4xl mx-auto bg-card rounded-lg border border-border p-4 md:p-6">
                 {recruitmentFaqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`recruitment-${index}`}>
+                  <AccordionItem key={faq.question} value={`recruitment-${index}`}>
                     <AccordionTrigger className="text-left text-base md:text-lg font-medium hover:no-underline">
                       {faq.question}
                     </AccordionTrigger>
@@ -150,9 +153,9 @@ export function FAQCTASection() {
 
             {/* Training TAB */}
             <TabsContent value="training" className="w-full">
-              <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
+              <Accordion type="single" collapsible className="w-full max-w-4xl mx-auto bg-card rounded-lg border border-border p-4 md:p-6">
                 {trainingFaqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`training-${index}`}>
+                  <AccordionItem key={faq.question} value={`training-${index}`}>
                     <AccordionTrigger className="text-left text-base md:text-lg font-medium hover:no-underline">
                       {faq.question}
                     </AccordionTrigger>
@@ -166,9 +169,9 @@ export function FAQCTASection() {
 
             {/* FSTM TAB */}
             <TabsContent value="fstm" className="w-full">
-              <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
+              <Accordion type="single" collapsible className="w-full max-w-4xl mx-auto bg-card rounded-lg border border-border p-4 md:p-6">
                 {fstmFaqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`fstm-${index}`}>
+                  <AccordionItem key={faq.question} value={`fstm-${index}`}>
                     <AccordionTrigger className="text-left text-base md:text-lg font-medium hover:no-underline">
                       {faq.question}
                     </AccordionTrigger>
@@ -184,43 +187,124 @@ export function FAQCTASection() {
 
         {/* CTA Options */}
         <div className="mb-20">
-          <h3 className="text-2xl md:text-3xl font-bold mb-10 text-center">
-            Ready to Transform Your Sales?
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {ctaOptions.map((option, index) => {
-              const Icon = option.icon;
-              return (
-                <div
-                  key={index}
-                  className="flex flex-col items-center text-center p-6 rounded-lg border border-border bg-card hover:bg-accent transition-colors"
+          <div className="text-center mb-10">
+            <h3 className="text-2xl md:text-3xl font-bold mb-2">
+              Ready to Stop Selling Alone?
+            </h3>
+            <p className="text-lg text-muted-foreground">
+              Let's Build Your Remote Sales Engine Together.
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-6">
+              {ctaOptions.map((option) => {
+                const Icon = option.icon;
+                return (
+                  <div
+                    key={option.title}
+                    className={`flex flex-col items-center text-center p-6 rounded-lg border h-full ${
+                      option.highlighted
+                        ? 'border-primary/50 bg-card/50'
+                        : 'border-border bg-card'
+                    }`}
+                  >
+                    <Icon className="w-8 h-8 mb-4 text-primary" />
+                    <h4 className="font-semibold mb-2">{option.title}</h4>
+                    <p className="text-sm text-muted-foreground mb-4 flex-1">{option.description}</p>
+                    <Button
+                      asChild
+                      className={option.highlighted ? "bg-gradient-gold" : ""}
+                      variant={option.highlighted ? "default" : "outline"}
+                      size="sm"
+                    >
+                      <a
+                        href={option.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Get Started
+                      </a>
+                    </Button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Work with Us CTA */}
+        <div className="mb-20">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold mb-2">
+              Work with Us
+            </h3>
+            <p className="text-lg text-muted-foreground">
+              Join our network of top-performing sales professionals
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="flex flex-col items-center text-center p-6 rounded-lg border border-border bg-card h-full">
+                <UserCheck className="w-8 h-8 mb-4 text-primary" />
+                <h4 className="font-semibold mb-2">Closer / Setter</h4>
+                <p className="text-sm text-muted-foreground mb-4 flex-1">
+                  Apply to join as a sales professional
+                </p>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
                 >
-                  <Icon className="w-8 h-8 mb-4 text-primary" />
-                  <h4 className="font-semibold mb-2">{option.title}</h4>
-                  <p className="text-sm text-muted-foreground">{option.description}</p>
-                </div>
-              );
-            })}
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfVLw2ZQXFUMQ2pwa5XfoT06go3NwacBkzXQwyAaXbA_-N1kg/viewform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Apply Now
+                  </a>
+                </Button>
+              </div>
+              <div className="flex flex-col items-center text-center p-6 rounded-lg border border-border bg-card h-full">
+                <Briefcase className="w-8 h-8 mb-4 text-primary" />
+                <h4 className="font-semibold mb-2">Sales Leader</h4>
+                <p className="text-sm text-muted-foreground mb-4 flex-1">
+                  Apply for sales leadership positions
+                </p>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                >
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSceTgp0tsZMlnnjRjw2UfmoFHvPCfG4TPoBWd4zW6LC53CgkQ/viewform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Apply Now
+                  </a>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Bottom CTA */}
         <div className="text-center bg-card border border-border rounded-lg p-8 md:p-12">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            Still have questions?
-          </h3>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Our team is here to help. Schedule a discovery call to discuss your specific sales challenges and how we can help.
+          <p className="text-xl md:text-2xl font-bold mb-6">
+            This isn't just another sales agency. This is your long-term revenue partner.
           </p>
-          <Button asChild size="lg">
+          <Button asChild size="lg" className="bg-gradient-gold hover:shadow-gold-lg transition-all duration-300 mb-4">
             <a
               href="https://share.synamate.com/widget/bookings/exclusivecloser-discovery-call"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Schedule Discovery Call
+              Apply Now & Book Your Free Call
             </a>
           </Button>
+          <p className="text-sm text-muted-foreground">
+            Only 10 new clients onboarded per month.
+          </p>
         </div>
       </div>
     </section>

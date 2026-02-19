@@ -50,7 +50,7 @@ export function HeroSection() {
                 </span>
                 <br />
                 <span className="text-foreground">
-                  for Coaches, SaaS & e-Learning
+                  for Coaches, SaaS & EdTech
                 </span>
               </h1>
               
@@ -86,8 +86,8 @@ export function HeroSection() {
 
         {/* Testimonials */}
         <div className="mt-16 grid md:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-card p-6 rounded-xl border border-border">
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.author} className="bg-card p-6 rounded-xl border border-border">
               <div className="flex items-start gap-4">
                 <img 
                   src={testimonial.image} 

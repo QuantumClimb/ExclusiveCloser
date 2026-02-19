@@ -38,7 +38,7 @@ export function UpdatedDifferentiatorSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {differentiators.map((item, index) => (
-            <div key={index} className="text-center space-y-4 p-6 bg-card rounded-xl border border-border hover:border-primary/50 transition-all duration-300">
+            <div key={index} className="text-center space-y-4 p-6 bg-card rounded-xl border border-border hover:border-primary transition-all duration-300">
               <div className="mx-auto w-16 h-16 bg-gradient-gold rounded-xl flex items-center justify-center">
                 <item.icon className="h-8 w-8 text-primary-foreground" />
               </div>

@@ -17,7 +17,7 @@ export function UpdatedProblemSection() {
   ];
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-10">
           <h2 className="text-4xl lg:text-5xl font-heading font-bold mb-6">

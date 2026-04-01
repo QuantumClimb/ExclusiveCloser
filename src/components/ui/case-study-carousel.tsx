@@ -1,10 +1,18 @@
 import { Play, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
-import { BarChart, Bar, CartesianGrid, XAxis, YAxis } from "recharts";
+import { BarChart, Bar, CartesianGrid, XAxis, YAxis, ResponsiveContainer } from "recharts";
 
 export function CaseStudyCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 480);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const caseStudies = [
     {
@@ -48,14 +56,14 @@ export function CaseStudyCarousel() {
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-heading font-bold mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4 md:mb-6 px-4">
             What Happens When You{" "}
             <span className="bg-gradient-gold bg-clip-text text-transparent">
               Stop Selling Alone
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-lg md:text-xl text-muted-foreground px-4">
             Real founders. Real sales engines. Real growth.
           </p>
         </div>
@@ -67,8 +75,8 @@ export function CaseStudyCarousel() {
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {caseStudies.map((study) => (
-                <div key={study.name} className="w-full flex-shrink-0">
-                  <div className="bg-card border border-border rounded-2xl p-8 grid lg:grid-cols-2 gap-8 items-center">
+                <div key={study.name} className="w-full flex-shrink-0 px-4 md:px-0">
+                  <div className="bg-card border border-border rounded-2xl p-5 sm:p-6 md:p-8 grid lg:grid-cols-2 gap-6 lg:gap-8 items-center max-w-[calc(100vw-32px)] md:max-w-none mx-auto">
                     {/* Video Thumbnail */}
                     <div className="relative group cursor-pointer">
                       <div className="aspect-video bg-muted rounded-xl flex items-center justify-center">
@@ -87,7 +95,7 @@ export function CaseStudyCarousel() {
                         <p className="text-muted-foreground">{study.company}</p>
                       </div>
                       
-                      <div className="text-3xl font-heading font-bold bg-gradient-gold bg-clip-text text-transparent">
+                      <div className="text-2xl md:text-3xl font-heading font-bold bg-gradient-gold bg-clip-text text-transparent">
                         {study.metrics}
                       </div>
                       
@@ -103,13 +111,20 @@ export function CaseStudyCarousel() {
                           className="h-48 w-full"
                           config={{ revenue: { label: "Revenue", color: "hsl(var(--primary))" } }}
                         >
-                          <BarChart data={study.growth}>
-                            <CartesianGrid vertical={false} strokeDasharray="3 3" />
-                            <XAxis dataKey="month" tickLine={false} axisLine={false} />
-                            <YAxis tickLine={false} axisLine={false} />
-                            <ChartTooltip content={<ChartTooltipContent />} />
-                            <Bar dataKey="revenue" fill="var(--color-revenue)" radius={[4,4,0,0]} isAnimationActive />
-                          </BarChart>
+                          <ResponsiveContainer width="100%" height="100%">
+                            <BarChart data={study.growth} margin={{ left: isMobile ? -35 : -20, right: 10, top: 10 }}>
+                              <CartesianGrid vertical={false} strokeDasharray="3 3" />
+                              <XAxis dataKey="month" tickLine={false} axisLine={false} />
+                              <YAxis 
+                                tickLine={false} 
+                                axisLine={false} 
+                                width={35}
+                                hide={isMobile}
+                              />
+                              <ChartTooltip content={<ChartTooltipContent />} />
+                              <Bar dataKey="revenue" fill="var(--color-revenue)" radius={[4,4,0,0]} isAnimationActive />
+                            </BarChart>
+                          </ResponsiveContainer>
                         </ChartContainer>
                       </div>
                     </div>

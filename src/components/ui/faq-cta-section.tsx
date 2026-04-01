@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Download, Search, Phone, Briefcase, UserCheck } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Helmet } from "react-helmet-async";
 
 export function FAQCTASection() {
   const recruitmentFaqs = [
@@ -108,8 +109,27 @@ export function FAQCTASection() {
     { label: "Explore Pricing Plans", href: "#" }
   ];
 
+  const allFaqs = [...recruitmentFaqs, ...trainingFaqs, ...fstmFaqs];
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": allFaqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <section className="w-full py-16 md:py-24 bg-background">
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
+      </Helmet>
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* FAQ Section */}
         <div className="mb-20">

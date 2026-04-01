@@ -1,14 +1,11 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+
+# Sitemap location
+Sitemap: https://exclusivecloser.com/sitemap.xml
+
+# Crawl delay for bots that support it
+Crawl-delay: 10
+
+# Host header
+Host: https://exclusivecloser.com

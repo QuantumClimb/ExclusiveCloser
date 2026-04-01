@@ -47,8 +47,9 @@ export function FoundersSection() {
               <figure className="mx-auto w-full max-w-md overflow-hidden rounded-xl border border-border bg-card">
                 <img
                   src={founder.image}
-                  alt={founder.name}
+                  alt={`Exclusive Closer Co-Founder ${founder.name} - ${founder.title}`}
                   className="w-full h-auto object-cover"
+                  loading="lazy"
                 />
               </figure>
               

@@ -127,8 +127,9 @@ export function SocialProofSection() {
               <div key={client.name} className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border hover:border-primary/50 transition-colors">
                 <img 
                   src={client.image} 
-                  alt={client.name} 
+                  alt={`Exclusive Closer Client: ${client.name} - ${client.role}`} 
                   className="w-12 h-12 rounded-full object-cover flex-shrink-0"
+                  loading="lazy"
                 />
                 <div className="min-w-0">
                   <p className="font-semibold text-foreground text-sm truncate">{client.name}</p>

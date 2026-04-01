@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, DollarSign, Users, CheckCircle, Target } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const RemoteSalesJobs = () => {
   const jobTypes = [
@@ -88,8 +89,51 @@ const RemoteSalesJobs = () => {
     { text: "Explore Open Roles", variant: "secondary" as const, icon: <CheckCircle className="w-5 h-5 mr-2" /> }
   ];
 
+  const jobSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": jobTypes.map((job, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "JobPosting",
+        "title": job.title,
+        "description": job.description,
+        "datePosted": "2026-04-01",
+        "validThrough": "2026-12-31",
+        "employmentType": job.commitment === "Full-time" ? "FULL_TIME" : "PART_TIME",
+        "hiringOrganization": {
+          "@type": "Organization",
+          "name": "Exclusive Closer",
+          "sameAs": "https://exclusivecloser.com"
+        },
+        "jobLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "IN"
+          }
+        },
+        "baseSalary": {
+          "@type": "MonetaryAmount",
+          "currency": "INR",
+          "value": {
+            "@type": "QuantitativeValue",
+            "value": job.earning.split("-")[0].replace(/[^0-9]/g, ""),
+            "unitText": "MONTH"
+          }
+        }
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen bg-background font-body">
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(jobSchema)}
+        </script>
+      </Helmet>
       <Navbar />
       <PageLayout
         title="High-Ticket Remote Sales Jobs"

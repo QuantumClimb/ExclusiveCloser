@@ -13,6 +13,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { PlayCircle, Users, Rocket, Briefcase } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 // Local types
 type VideoItem = {
@@ -48,52 +49,6 @@ const leadershipVideos: VideoItem[] = [
   { title: "Quarterly Planning", author: "With Aum", thumb: "/images/crm-dashboard.jpg" },
 ];
 
-function useSEO() {
-  useEffect(() => {
-    const title = "Free Sales Training | Exclusive Closer";
-    const description =
-      "Watch free sales masterclasses on recruitment, closing, and leadership from Exclusive Closer.";
-    document.title = title;
-
-    const ensureMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute("name", name);
-        document.head.appendChild(el);
-      }
-      el.setAttribute("content", content);
-    };
-
-    ensureMeta("description", description);
-
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute("href", window.location.href);
-
-    const jsonLd = {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      name: title,
-      description,
-      url: window.location.href,
-    } as const;
-
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.text = JSON.stringify(jsonLd);
-    document.head.appendChild(script);
-
-    return () => {
-      // Optional cleanup: remove injected JSON-LD to avoid duplicates on route changes
-      document.head.removeChild(script);
-    };
-  }, []);
-}
 
 const VideoCard: React.FC<{ item: VideoItem }> = ({ item }) => (
   <article className="group">
@@ -122,10 +77,27 @@ const VideoCard: React.FC<{ item: VideoItem }> = ({ item }) => (
 );
 
 const SalesTraining = () => {
-  useSEO();
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Remote Sales Warrior Masterclass",
+    "description": "Learn the proven mindset, rituals, and playbooks behind India’s top-performing closers.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Exclusive Closer",
+      "sameAs": "https://exclusivecloser.com"
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Helmet>
+        <title>Sales Training & Recruitment Masterclass | Exclusive Closer</title>
+        <meta name="description" content="Watch free sales masterclasses on recruitment, closing, and leadership. Master high-ticket closing with Exclusive Closer's proven playbooks." />
+        <script type="application/ld+json">
+          {JSON.stringify(courseSchema)}
+        </script>
+      </Helmet>
       <Navbar />
       <main>
         {/* HERO 1: Remote Sales Warrior Masterclass */}

@@ -31,7 +31,7 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center bg-background pt-16">
+    <section className="relative min-h-screen flex items-center bg-background pt-24 lg:pt-32 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-background" />
       <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-gold opacity-10 rounded-full blur-3xl" />
@@ -40,7 +40,7 @@ export function HeroSection() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 text-center lg:text-left">
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-6xl font-heading font-bold leading-tight">
                 <span className="text-foreground">India's #1</span>
@@ -54,14 +54,14 @@ export function HeroSection() {
                 </span>
               </h1>
               
-              <p className="text-xl text-muted-foreground font-body max-w-2xl leading-relaxed">
+              <p className="text-xl text-muted-foreground font-body max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 We help you scale revenue by installing high-performance remote sales teams - trained high-ticket closers, appointment setters, and sales leaders who take full ownership of your sales pipeline.
               </p>
             </div>
 
             {/* CTA */}
-            <div className="space-y-2">
-              <Button asChild size="lg" className="bg-gradient-gold hover:shadow-gold-lg transition-all duration-300 text-lg px-8 py-4 h-auto">
+            <div className="flex justify-center lg:justify-start">
+              <Button asChild size="lg" className="bg-gradient-gold hover:shadow-gold-lg transition-all duration-300 text-lg px-8 py-4 h-auto w-full sm:w-auto">
                 <a href="https://share.synamate.com/widget/bookings/exclusivecloser-discovery-call" target="_blank" rel="noopener noreferrer">
                   Book Your Free Discovery Call
                 </a>

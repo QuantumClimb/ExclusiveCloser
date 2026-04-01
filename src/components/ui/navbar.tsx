@@ -53,17 +53,17 @@ export const Navbar = () => {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              type="button"
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Toggle navigation menu"
-              aria-expanded={isOpen}
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+          {/* Mobile CTA Button - Replaces Hamburger Menu */}
+          <div className="flex md:hidden">
+            <Button asChild size="sm" className="bg-gradient-gold font-semibold">
+              <a 
+                href="https://share.synamate.com/widget/bookings/exclusivecloser-discovery-call"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get Started
+              </a>
+            </Button>
           </div>
         </div>
       </div>

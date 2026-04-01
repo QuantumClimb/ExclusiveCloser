@@ -13,7 +13,7 @@ import { UpdatedFooter } from "@/components/ui/updated-footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background font-body">
+    <div className="min-h-screen bg-background font-body overflow-x-hidden">
       <Navbar />
       <HeroSection />
       <FeatureSection />

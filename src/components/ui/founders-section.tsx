@@ -66,13 +66,13 @@ export function FoundersSection() {
 
               {/* Social Icons */}
               <div className="flex justify-center gap-4">
-                <a href={founder.social.linkedin} className="p-2 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors">
+                <a href={founder.social.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors">
                   <Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary" />
                 </a>
-                <a href={founder.social.youtube} className="p-2 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors">
+                <a href={founder.social.youtube} target="_blank" rel="noopener noreferrer" className="p-2 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors">
                   <Youtube className="h-5 w-5 text-muted-foreground hover:text-primary" />
                 </a>
-                <a href={founder.social.instagram} className="p-2 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors">
+                <a href={founder.social.instagram} target="_blank" rel="noopener noreferrer" className="p-2 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors">
                   <Instagram className="h-5 w-5 text-muted-foreground hover:text-primary" />
                 </a>
               </div>

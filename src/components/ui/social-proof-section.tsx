@@ -145,21 +145,26 @@ export function SocialProofSection() {
             <div key={video.name} className="group cursor-pointer">
               <div className="relative overflow-hidden rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300">
                 {getVideoEmbed(index, video)}
-                  <div className="p-6">
+                  <div className="p-6 overflow-hidden">
                     <h3 className="font-heading font-bold text-lg mb-1">{video.name}</h3>
                     <p className="text-muted-foreground mb-4">{video.title}</p>
                     <div>
                       <h4 className="font-heading font-semibold">Revenue Growth Timeline</h4>
                       <p className="text-sm text-muted-foreground mb-3">{video.metrics}</p>
-                      <div className="overflow-hidden">
+                      <div className="overflow-hidden w-full">
                         <ChartContainer
                           className="h-32 md:h-40 w-full"
                           config={{ revenue: { label: "Revenue", color: "#F9A825" } }}
                         >
-                        <BarChart data={video.growth}>
+                        <BarChart data={video.growth} margin={{ left: -20, right: 10 }}>
                           <CartesianGrid vertical={false} strokeDasharray="3 3" />
                           <XAxis dataKey="month" tickLine={false} axisLine={false} />
-                          <YAxis tickLine={false} axisLine={false} />
+                          <YAxis 
+                            tickLine={false} 
+                            axisLine={false} 
+                            width={30}
+                            hide={typeof window !== 'undefined' && window.innerWidth < 480}
+                          />
                           <ChartTooltip content={<ChartTooltipContent />} />
                           <Bar dataKey="revenue" fill="var(--color-revenue)" radius={[4,4,0,0]} isAnimationActive />
                         </BarChart>

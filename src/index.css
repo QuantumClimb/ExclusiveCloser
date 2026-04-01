@@ -109,10 +109,7 @@ All colors MUST be HSL.
   }
 
   @media (max-width: 640px) {
-    h1 {
-      font-size: 0.85em !important;
-      line-height: 1.2;
-    }
+    /* Headings are now handled via responsive Tailwind classes */
   }
 }
 

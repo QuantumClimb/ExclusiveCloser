@@ -43,25 +43,7 @@ export function SocialProofSection() {
     );
   };
 
-  const clients = [
-    { name: "Dev Gadhvi", role: "Coach", image: "/images/clients/EC Clients 00 - Dev Gadhvi.jpg" },
-    { name: "Ankit Neerav", role: "Coach", image: "/images/clients/EC Clients 01 - Ankit Neerav.jpg" },
-    { name: "Kshitij Sehrawat", role: "Coach", image: "/images/clients/EC Clients 02 - Kshitij Sehrawat.jpg" },
-    { name: "Swastik Nandakumar", role: "Coach", image: "/images/clients/EC Clients 03 - Swastik Nandakumar.jpg" },
-    { name: "Shankar Kulkarni", role: "Coach", image: "/images/clients/EC Clients 04 - Shankar Kulkarni.jpg" },
-    { name: "Nishkarsh Sharma", role: "Coach", image: "/images/clients/EC Clients 05 - Nishkarsh Sharma.jpg" },
-    { name: "Kewal Kishan", role: "Coach", image: "/images/clients/EC Clients 06 - Kewal Kishan.jpg" },
-    { name: "Suresh Manshermani", role: "Coach", image: "/images/clients/EC Clients 07 - Suresh Manshermani.jpg" },
-    { name: "Sandeep Bhansali", role: "Coach", image: "/images/clients/EC Clients 08 - Sandeep Bhansali.jpg" },
-    { name: "Vishal Manocha", role: "Coach", image: "/images/clients/EC Clients 09 - Vishal Manocha.jpg" },
-    { name: "Gopal Kishnan", role: "Coach", image: "/images/clients/EC Clients 10 - Gopal Kishnan.jpg" },
-    { name: "Nivetha Muralidharan", role: "Coach", image: "/images/clients/EC Clients 11 - Nivetha Muralidharan.jpg" },
-    { name: "Gurleen Kaur", role: "Coach", image: "/images/clients/EC Clients 12 - Gurleen Kaur.jpg" },
-    { name: "Chef Arvind", role: "Coach", image: "/images/clients/EC Clients 13 - Chef Arvind.jpg" },
-    { name: "Avi Arya", role: "Coach", image: "/images/clients/EC Clients 14 - Avi Arya.jpg" },
-    { name: "Jyothi Nookla", role: "Coach", image: "/images/clients/EC Clients 15 - Jyothi Nookla.jpg" },
-    { name: "Sriram Benur", role: "Coach", image: "/images/clients/EC Clients 16 - Sriram Benur.jpg" }
-  ];
+
 
   const testimonialVideos: TestimonialVideo[] = [
     {
@@ -122,21 +104,13 @@ export function SocialProofSection() {
               Over 50+ businesses have scaled their sales with our remote sales teams
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            {clients.map((client) => (
-              <div key={client.name} className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border hover:border-primary/50 transition-colors">
-                <img 
-                  src={client.image} 
-                  alt={`Exclusive Closer Client: ${client.name} - ${client.role}`} 
-                  className="w-12 h-12 rounded-full object-cover flex-shrink-0"
-                  loading="lazy"
-                />
-                <div className="min-w-0">
-                  <p className="font-semibold text-foreground text-sm truncate">{client.name}</p>
-                  <p className="text-xs text-muted-foreground">{client.role}</p>
-                </div>
-              </div>
-            ))}
+          <div className="flex justify-center w-full max-w-5xl mx-auto">
+            <img 
+              src="/images/EC Client Logo.png" 
+              alt="Exclusive Closer Clients" 
+              className="w-full h-auto object-contain"
+              loading="lazy"
+            />
           </div>
         </div>
 

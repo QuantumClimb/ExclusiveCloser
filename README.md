@@ -34,6 +34,12 @@ npm run build:dev
 # Preview production build
 npm run preview
 ```
+## 🔄 Recent Updates (Feb 2026 Redesign)
+
+- **UI Modernization**: Transitioned placeholder images/videos to embedded YouTube players across the Hero, Problem, and Solutions sections.
+- **Social Proof**: Replaced the client ticker with a unified "Trusted by India's Top Coaches" logo image and built a custom interactive case study video sidebar layout.
+- **Navigation & CTAs**: Upgraded the navbar with a logo image on a dark theme; standardized all primary CTAs to launch the Synamate booking widget.
+- **Architecture**: Removed the deprecated Funnel Audit section, fixed TypeScript config errors, and reorganized the FAQ into three tab-based categories (Recruitment, Sales Training, Full Sales Team Management).
 
 ## 🛠️ Tech Stack
 

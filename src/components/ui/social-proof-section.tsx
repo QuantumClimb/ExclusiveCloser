@@ -148,9 +148,15 @@ export function SocialProofSection() {
                       <Button 
                         asChild 
                         size="sm" 
-                        className="w-full mt-4 bg-gradient-gold hover:shadow-gold-lg transition-all duration-300"
+                        className="w-full mt-4 bg-gradient-gold hover:shadow-gold-lg transition-all duration-300 cursor-pointer"
                       >
-                        <a href={video.caseStudyUrl} target="_blank" rel="noopener noreferrer">
+                        <a 
+                          href="#case-study-carousel" 
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById('case-study-carousel')?.scrollIntoView({ behavior: 'smooth' });
+                          }}
+                        >
                           View Case Study
                         </a>
                       </Button>

@@ -4,26 +4,21 @@ import { Play } from "lucide-react";
 export function CaseStudyCarousel() {
   const videos = [
     {
-      id: "IwGOYr4azR4",
-      title: "Sandeep Bhansali - ₹16L → ₹2.3CR in 12 months",
-      thumbnail: "https://img.youtube.com/vi/IwGOYr4azR4/maxresdefault.jpg"
+      id: "yXT76R_12vo",
+      title: "How We Turned Webinar Chaos into Predictable Revenue for Sandeep Bhansali",
+      thumbnail: "https://img.youtube.com/vi/yXT76R_12vo/hqdefault.jpg"
     },
     {
-      id: "5iuarxMXZCI",
-      title: "Vishal Manocha - 1CR → 2CR per month",
-      thumbnail: "https://img.youtube.com/vi/5iuarxMXZCI/maxresdefault.jpg"
-    },
-    {
-      id: "ICLmnYUwpMQ",
-      title: "Jyothi Nookla - 0 to ₹1.63CR in 6 Months",
-      thumbnail: "https://img.youtube.com/vi/ICLmnYUwpMQ/maxresdefault.jpg"
+      id: "sbgCtEUHVKA",
+      title: "The $180K Blueprint: Turning Expertise into a Scalable Business",
+      thumbnail: "https://img.youtube.com/vi/sbgCtEUHVKA/hqdefault.jpg"
     }
   ];
 
   const [activeVideo, setActiveVideo] = useState(videos[0].id);
 
   return (
-    <section className="py-24 bg-background">
+    <section id="case-study-carousel" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4 md:mb-6 px-4">

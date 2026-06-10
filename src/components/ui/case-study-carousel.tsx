@@ -1,21 +1,55 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Play } from "lucide-react";
 
-export function CaseStudyCarousel() {
-  const videos = [
-    {
-      id: "yXT76R_12vo",
-      title: "How We Turned Webinar Chaos into Predictable Revenue for Sandeep Bhansali",
-      thumbnail: "https://img.youtube.com/vi/yXT76R_12vo/hqdefault.jpg"
-    },
-    {
-      id: "sbgCtEUHVKA",
-      title: "The $180K Blueprint: Turning Expertise into a Scalable Business",
-      thumbnail: "https://img.youtube.com/vi/sbgCtEUHVKA/hqdefault.jpg"
-    }
-  ];
+interface Video {
+  id: string;
+  youtubeId: string;
+  title: string;
+  thumbnail: string;
+}
 
-  const [activeVideo, setActiveVideo] = useState(videos[0].id);
+export function CaseStudyCarousel() {
+  const [videos, setVideos] = useState<Video[]>([]);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/videos')
+      .then(res => res.json())
+      .then(data => {
+        // Fallback to hardcoded if API fails or returns empty during setup
+        if (Array.isArray(data) && data.length > 0) {
+          setVideos(data);
+          setActiveVideo(data[0].youtubeId);
+        } else {
+          const fallback = [
+            {
+              id: "fallback-1",
+              youtubeId: "yXT76R_12vo",
+              title: "How We Turned Webinar Chaos into Predictable Revenue for Sandeep Bhansali",
+              thumbnail: "https://img.youtube.com/vi/yXT76R_12vo/hqdefault.jpg"
+            },
+            {
+              id: "fallback-2",
+              youtubeId: "sbgCtEUHVKA",
+              title: "The $180K Blueprint: Turning Expertise into a Scalable Business",
+              thumbnail: "https://img.youtube.com/vi/sbgCtEUHVKA/hqdefault.jpg"
+            }
+          ];
+          setVideos(fallback);
+          setActiveVideo(fallback[0].youtubeId);
+        }
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to load videos:', err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div className="py-24 text-center text-muted-foreground">Loading case studies...</div>;
+  }
 
   return (
     <section id="case-study-carousel" className="py-24 bg-background">
@@ -36,13 +70,15 @@ export function CaseStudyCarousel() {
           {/* Main Video Player */}
           <div className="lg:col-span-2">
             <div className="aspect-video w-full rounded-2xl overflow-hidden bg-card border border-border shadow-lg">
-              <iframe
-                src={`https://www.youtube.com/embed/${activeVideo}?rel=0&modestbranding=1`}
-                title="Client Success Story"
-                className="w-full h-full border-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+              {activeVideo && (
+                <iframe
+                  src={`https://www.youtube.com/embed/${activeVideo}?rel=0&modestbranding=1`}
+                  title="Client Success Story"
+                  className="w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              )}
             </div>
           </div>
 
@@ -55,9 +91,9 @@ export function CaseStudyCarousel() {
               {videos.map((video) => (
                 <button
                   key={video.id}
-                  onClick={() => setActiveVideo(video.id)}
+                  onClick={() => setActiveVideo(video.youtubeId)}
                   className={`flex gap-3 items-start p-2 rounded-xl transition-all duration-300 w-full text-left hover:bg-muted ${
-                    activeVideo === video.id ? "bg-muted ring-1 ring-primary/50" : ""
+                    activeVideo === video.youtubeId ? "bg-muted ring-1 ring-primary/50" : ""
                   }`}
                 >
                   <div className="relative w-28 aspect-video flex-shrink-0 rounded-lg overflow-hidden bg-background border border-border">
@@ -66,7 +102,7 @@ export function CaseStudyCarousel() {
                       alt={video.title}
                       className="w-full h-full object-cover"
                     />
-                    {activeVideo === video.id && (
+                    {activeVideo === video.youtubeId && (
                       <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
                         <Play className="w-6 h-6 text-white fill-white" />
                       </div>

@@ -18,6 +18,7 @@ const Insights = lazy(() => import("./pages/Insights"));
 const Podcast = lazy(() => import("./pages/Podcast"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const RemoteSalesJobs = lazy(() => import("./pages/RemoteSalesJobs"));
+const Admin = lazy(() => import("./pages/Admin"));
 
 const queryClient = new QueryClient();
 
@@ -80,6 +81,7 @@ function AppRoutes() {
           <Route path="/podcast" element={<Podcast />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/remote-sales-jobs" element={<RemoteSalesJobs />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

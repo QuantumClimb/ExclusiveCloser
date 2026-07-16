@@ -2,10 +2,10 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://exclusivecloser.com/sitemap.xml
+Sitemap: https://start.exclusivecloser.com/sitemap.xml
 
 # Crawl delay for bots that support it
 Crawl-delay: 10
 
 # Host header
-Host: https://exclusivecloser.com
+Host: https://start.exclusivecloser.com
